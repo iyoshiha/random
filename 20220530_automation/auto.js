@@ -22,16 +22,26 @@ var second_api_url = "https://language.googleapis.com/v1beta1/documents:analyzeE
 //             console.log(site)
 //     })
 
+var firstApiObj = {
+            requests: [{
+                image: {
+                    content:'福田昌広',
+                features: [{
+                    type: 'DOCUMENT_TEXT_DETECTION',
+                    maxResults: 1,
+                }]
+            }}]
+}
+
+console.log(firstApiObj.requests[0]);
 axios.post(first_api_url, firstApiObj)
     .then((res)=>{
-        console.log('helo');
         console.log(res);
-
+            // entities[0].name);
     })
     .catch(()=>{
     console.log('err');
-}
-    )
+    })
 
 
 
@@ -45,16 +55,6 @@ var secondApiObj = {
         "encodingType": "UTF8"
 }
 
-var firstApiObj = {
-            requests: [{
-                image: {
-                    content:'',
-                features: [{
-                    type: 'DOCUMENT_TEXT_DETECTION',
-                    maxResults: 1,
-                }]
-            }}]
-}
 
 async function call1stApi(url, firstApiObj) {
     // read line assign to base64;
@@ -63,7 +63,7 @@ async function call1stApi(url, firstApiObj) {
     await axios.post(url, firstApiObj)
     .then((res)=>{
         let firstResponse = new FirstApiReciver(res.data.description)
-        await call2ndApi(firstResponse.getElemsOfDescriptionAry())
+        call2ndApi(firstResponse.getElemsOfDescriptionAry())
     })
 
 }
@@ -94,7 +94,7 @@ async function call2ndApi(ary){
             if (!end){
                 // add ',' at the end of line
             };
-            await _sleep(50);
+            _sleep(50);
         })
     }
     //next line
