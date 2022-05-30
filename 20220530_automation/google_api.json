@@ -1,0 +1,28 @@
+{
+    "responses": [
+        {
+            "textAnnotations": [
+                {
+                    "locale": "ja",
+                    "description": "NEOFLUX\nCM 株式会社 相模化学金属\n了夕礻小,製造・販売\n專務取締役\n福田昌宏\n〒252-0132 神奈川県相模原市緑区橋本台3丁目12番18号\n(八の原工業団地内)\n電話042 773-26 26 (1)\nFAX 042\n772\n0099\nURL:http://www.sagami-magnet.co.jp/\ne-mail:scm-masa@sagami-magnet.co.jp\nMS\nJAB\nIntertek\nOMS\nCMOS7\nISO9001:2008 認証取得",
+                    "boundingPoly": {
+                        "vertices": [
+                            {
+                                "x": 24,
+                                "y": 21
+                            },
+                            {
+                                "x": 531,
+                                "y": 21
+                            },
+                            {
+                                "x": 531,
+                                "y": 338
+                            },
+                            {
+                                "x": 24,
+                                "y": 338
+                            }
+                        ]
+                    }
+                },
