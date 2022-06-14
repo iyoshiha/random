@@ -22,10 +22,20 @@ var second_api_url = "https://language.googleapis.com/v1beta1/documents:analyzeE
 //             console.log(site)
 //     })
 
+var secondApiObj = {
+        "document": {
+            "type": "PLAIN_TEXT",
+            "language": "JA",
+            "content": "福田昌広"
+        },
+        "encodingType": "UTF8"
+}
+
+
 var firstApiObj = {
             requests: [{
                 image: {
-                    content:'福田昌広',
+                    content:'',
                 features: [{
                     type: 'DOCUMENT_TEXT_DETECTION',
                     maxResults: 1,
@@ -33,10 +43,10 @@ var firstApiObj = {
             }}]
 }
 
-console.log(firstApiObj.requests[0]);
-axios.post(first_api_url, firstApiObj)
+// console.log(firstApiObj.requests[0]);
+axios.post(second_api_url, secondApiObj)
     .then((res)=>{
-        console.log(res);
+        console.log(res.data);
             // entities[0].name);
     })
     .catch(()=>{
@@ -46,14 +56,6 @@ axios.post(first_api_url, firstApiObj)
 
 
 
-var secondApiObj = {
-        "document": {
-            "type": "PLAIN_TEXT",
-            "language": "JA",
-            "content": ""
-        },
-        "encodingType": "UTF8"
-}
 
 
 async function call1stApi(url, firstApiObj) {

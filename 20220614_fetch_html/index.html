@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="get_html()">
+        get html
+    </button>
+
+    <div id="html">
+        
+    </div>
+    
+</body>
+</html>
+
+<script>
+
+async function get_html(){
+    const result = await fetch('http://localhost/spring_practice/login', {
+  method: "GET"
+}).then(function(response) {
+  return response.text();
+// })
+}).then(function(data) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(data, "text/html");
+  const message = doc.getElementsByName("userId");
+  return message;
+});
+
+console.log(result);
+}
+
+</script>
