@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="js-loader" class="loader"></div>
+
+    <main>
+      <h1>ローディング終了</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime voluptate mollitia assumenda eius illo eum eaque minima obcaecati culpa voluptas cumque beatae aut et fuga minus illum perspiciatis, inventore quidem.</p>
+    </main>
+</body>
+<script>
+    const loader = document.getElementById('js-loader');
+window.addEventListener('load', () => {
+  const ms = 400;
+  loader.style.transition = 'opacity ' + ms + 'ms';
+  
+  const loaderOpacity = function(){
+    loader.style.opacity = 0;
+  }
+  const loaderDisplay = function(){
+    loader.style.display = "none";
+  }
+  // setTimeout(loaderOpacity, 1);
+  // setTimeout(loaderDisplay, ms);
+  // デモ用
+  setTimeout(loaderOpacity, 10000);
+  setTimeout(loaderDisplay, 10000 + ms);
+});
+</script>
+<style>
+    .loader {
+  align-items: center;
+  background: #fff;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 999;
+}
+@keyframes load{
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+    .loader::after {
+    animation: load 2s infinite;
+    border: 10px solid orange;
+    border-radius: 50%;
+    border-right: 1px solid rgba(orange, 0.2);
+    border-top: 1px solid rgba(orange, 0.2);
+    content: "";
+    height: 70px;
+    width: 70px;
+  }
+
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+
+main{
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 25px;
+}
+  h1 {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  p{
+    font-size: 16px;
+    margin-top: 30px;
+  }
+</style>
+
+</html>

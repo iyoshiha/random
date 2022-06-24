@@ -22,6 +22,7 @@
 <script>
 
 async function get_html(){
+    for (let i = 0; i < 5; i++){
     const result = await fetch('http://localhost/spring_practice/login', {
   method: "GET"
 }).then(function(response) {
@@ -34,7 +35,8 @@ async function get_html(){
   return message;
 });
 
-console.log(result);
+console.log(result + 'done' + i);
+}
 }
 
 </script>

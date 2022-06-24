@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="div">
+        <p id='ptag'>p tag <textarea id="target"></textarea></p>
+    </div>
+
+</body>
+    <script>
+        // const target = document.getElementById('target');
+        const target = document.getElementById('ptag');
+
+        const observer= new MutationObserver((mutations) => {
+            console.log( '########### start ##################');
+            console.log(mutations);
+        mutations.forEach((mutation) => {
+            console.log( mutation);
+            console.log( '###########   end   ################');
+        });
+    });
+
+    const config = {
+        
+        // characterData: true,
+        childList: true,
+        subtree: true
+    };
+
+    observer.observe(target, config);
+    </script>
+</html>
+<!-- 
+let ptag = document.getElementById('ptag');ptag.innerHTML = `<p id='a'>helloo</p>`;
+let pp = document.getElementById('a');
+pp.innerHTML = "<div id='b'><span id='c'></span></div>";
+document.getElementById('c').innerHTML = 'heele'; 
+-->
